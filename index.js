@@ -1,4 +1,6 @@
 require("dotenv").config();
+const reload = require("reload");
+const { exec } = require("child_process");
 
 const app = require("./src/app");
 
@@ -12,3 +14,15 @@ app.listen(port, (err) => {
     console.log(`Server is listening on ${port}`);
   }
 });
+
+/* this block is for auto-reload only */
+/* ================================== */
+exec("npm run tailwind:css", (error, success) => {
+  if (error) console.error(error.message);
+  if (success) {
+    // eslint-disable-next-line no-restricted-syntax
+    console.log(success);
+    reload(app);
+  }
+});
+/* ================================== */

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="flex flex-col h-full">
+    <header class="shrink"><%- include('../partials/header'); %></header>
+
+    <main class="grow"><%- body %></main>
+
+    <footer class="shrink"><%- include('../partials/footer'); %></footer>
+    <!-- This line is for auto-reload only -->
+    <script src="/reload/reload.js"></script>
+  </body>
+</html>
