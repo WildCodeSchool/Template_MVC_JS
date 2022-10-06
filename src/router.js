@@ -3,12 +3,9 @@ const express = require("express");
 const router = express.Router();
 
 const productControllers = require("./controllers/productControllers");
+const categoryControllers = require("./controllers/categoryControllers");
 
-router.get("/", (req, res) => {
-  res.render("pages/index", {
-    title: "Home",
-  });
-});
+router.get("/", categoryControllers.browse);
 router.get("/products", productControllers.browse);
 
 module.exports = router;
