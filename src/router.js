@@ -7,8 +7,7 @@ const categoryControllers = require("./controllers/categoryControllers");
 
 router.get("/", categoryControllers.browse);
 router.get("/products", productControllers.browse);
-router.get("/contact", (req, res) => {
-  console.log(req.body);
+router.post("/contact", (req, res) => {
   res.render("pages/contact", {
     title: "Thanks for the message",
     form: req.body,
