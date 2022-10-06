@@ -21,5 +21,11 @@
   </div>
 </section>
 <section>
-  
+  <ul>
+
+    <% categories.forEach(function(category) { %>
+      <li><%= category.label %></li>
+    <%}) %>
+  </ul>
+    
 </section>
