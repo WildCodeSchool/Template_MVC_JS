@@ -5,17 +5,10 @@ class ProductManager extends AbstractManager {
     super({ table: "products" });
   }
 
-  insert(item) {
+  findWithCategory(id) {
     return this.connection.query(
-      `insert into ${this.table} (title) values (?)`,
-      [item.title]
-    );
-  }
-
-  update(item) {
-    return this.connection.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      `select * from  ${this.table} inner join categories on ${this.table}.category_id = categories.id where ${this.table}.id = ?`,
+      [id]
     );
   }
 }
